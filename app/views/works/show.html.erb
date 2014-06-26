@@ -1,0 +1,14 @@
+<div class="left">
+  <h2><%= @work.title %></h2>
+  <p>By <%= @work.artist.name %></p>
+  <p><%= @work.year %></p>
+  <p><%= @work.medium %></p>
+  <p><%= @work.style %></p>
+</div>
+<div class="right">
+  <%= image_tag(@work.image, :class => 'full-image') %>
+  <div class="button-cluster">
+    <%= link_to(content_tag(:div, 'Edit', class:"button"), edit_work_path(@work)) %>
+    <%= link_to(content_tag(:div, 'Delete', class:"button"), @work, :data => {:confirm => 'Are you sure you want to delete this work?', :method => :delete }) %>
+  </div>
+</div>

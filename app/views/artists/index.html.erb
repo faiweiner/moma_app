@@ -1,0 +1,10 @@
+<% @artists.each do |artist| %>
+  <div class="list-row-display">
+    <%= link_to(image_tag(artist.image, :class => 'thumbnail'), artist) if artist.image %>
+    <h3><%= link_to(artist.name, artist) %></h3>
+    <div class="button-cluster">
+    <%= link_to(content_tag(:div, "Edit", class:"button"), edit_artist_path(artist)) %>
+    <%= link_to(content_tag(:div,"Delete", class:"button"), artist, :data => {:confirm => 'Are you sure you want to delete this artist?'}, :method => :delete) %>
+    </div>
+  </div>
+<% end %>

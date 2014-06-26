@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MomaApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Questrial|Open+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div id="container">
+    <nav>
+      <%= link_to(image_tag("/assets/Moma-1-logo.jpg", :id => "logo", :alt => "MoMA"), '/')%>
+      <ul class="nav-ul">
+        <li class="nav-li"><%= link_to(content_tag(:span, "Artists", class:"nav-box"), artists_path, :class => 'nav-button artist') %></li>
+        <li class="nav-li"><%= link_to(content_tag(:span, 'Add Artists', class:"nav-box"), new_artist_path, :class => 'nav-button artist') %></li>
+        <li class="nav-li"><%= link_to(content_tag(:span,'Works', class:"nav-box"), works_path, :class => 'nav-button work') %></li>
+        <li class="nav-li"><%= link_to(content_tag(:span,'Add New Works', class:"nav-box"), new_work_path, :class => 'nav-button work') %></li>
+      </ul>
+    </nav>
+    <div id="content">
+      <%= yield %>
+    </div>
+    <footer>
+      Designed and built by Fai Weiner
+    </footer>
+  </div>
+</body>
+</html>
